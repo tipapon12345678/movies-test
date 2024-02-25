@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_ep_eps",
+  "info": {
+    "displayName": "ep"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Iframe": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "kind": "collectionType",
+  "collectionName": "movies",
+  "info": {
+    "singularName": "movie",
+    "pluralName": "movies",
+    "displayName": "Movie",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Year": {
+      "type": "string"
+    },
+    "Content": {
+      "type": "richtext"
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "Title"
+    },
+    "Rating": {
+      "type": "string"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "movies"
+    },
+    "types": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::type.type",
+      "inversedBy": "movies"
+    },
+    "Collection": {
+      "type": "enumeration",
+      "enum": [
+        "movies",
+        "series"
+      ]
+    },
+    "quality": {
+      "type": "enumeration",
+      "enum": [
+        "HD",
+        "ZM"
+      ]
+    },
+    "Sound": {
+      "type": "enumeration",
+      "enum": [
+        "Thai",
+        "Sound Track"
+      ]
+    },
+    "Youtube": {
+      "type": "string"
+    },
+    "ep": {
+      "displayName": "ep",
+      "type": "component",
+      "repeatable": true,
+      "component": "ep.ep"
+    },
+    "movies": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::movie.movie",
+      "inversedBy": "Recommended"
+    },
+    "Recommended": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::movie.movie",
+      "inversedBy": "movies"
+    },
+    "Poppulate": {
+      "type": "boolean"
+    },
+    "ImageBg": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
